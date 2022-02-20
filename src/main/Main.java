@@ -33,7 +33,7 @@ public class Main {
     }
 
     private static void menuBusqueda(int elemento, List<Integer> list){
-        System.out.println("Método de Búsqueda");
+        System.out.println("\nMétodo de Búsqueda");
         System.out.println("1.-Lineal\n2.-Binaria\n3.-Todos\n4.-Atrás\n0.-Salir");
         int opc = leer.nextInt();
 
@@ -42,7 +42,7 @@ public class Main {
                 long timeStart = System.nanoTime();
                 int indValue = Busqueda.lineal(elemento, list);
                 long time = System.nanoTime() - timeStart;
-                estado(list,indValue,time);
+                estado(list,indValue,time, "Lineal");
                 menuBusqueda(elemento,list);
                 break;
             case 2: //Método Binario
@@ -51,7 +51,7 @@ public class Main {
                 timeStart = System.nanoTime();
                 indValue = Busqueda.binaria(elemento, list);
                 time = System.nanoTime() - timeStart;
-                estado(list,indValue,time);
+                estado(list,indValue,time, "Binaria");
                 menuBusqueda(elemento,list);
                 break;
             case 3: //Todos
@@ -91,15 +91,15 @@ public class Main {
         return false;
     }
 
-    public static void estado(List<Integer> list,int index, long time){
+    public static void estado(List<Integer> list,int index, long time, String metBusq){
         if(index!=-1){
-            System.out.println("\n------------BUSQUEDA--------------");
+            System.out.println("\n------------BUSQUEDA " + metBusq);
             System.out.println("Estado: Encontrado");
             System.out.println("Valor: " + list.get(index));
             System.out.println("Posición: list[" +index+"]");
             System.out.println("Duración: "+time+" Nanoseg...");
         }else{
-            System.out.println("\n------------BUSQUEDA--------------");
+            System.out.println("\n------------BUSQUEDA " + metBusq);
             System.out.println("Estado: No Encontrado");
             System.out.println("Duración: "+time+" Nanoseg...");
         }

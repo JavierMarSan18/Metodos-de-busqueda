@@ -38,12 +38,12 @@ public class Busqueda {
         long timeStart = System.nanoTime();
         int indValue = lineal(elemento,list); //Metodo Lineal
         long time = System.nanoTime() - timeStart;
-        Main.estado(list,indValue,time);
+        Main.estado(list,indValue,time, "Lineal");
 
         Collections.sort(list);//Ordenando la lista
         timeStart = System.nanoTime();
         indValue = binaria(elemento,list); //Metodo Binario
         time = System.nanoTime() - timeStart;
-        Main.estado(list,indValue,time);
+        Main.estado(list,indValue,time, "Binaria");
     }
 }
